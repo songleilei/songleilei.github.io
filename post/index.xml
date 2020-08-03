@@ -17,7 +17,7 @@
       <pubDate>Mon, 03 Aug 2020 22:59:04 +0800</pubDate>
       
       <guid>https://songleilei.github.io/post/my-first-post/</guid>
-      <description>这是第一篇博客</description>
+      <description>这是第一篇博客 更新了一些内容 来测试脚本能否运行 1 2 3 const a = () =&amp;gt; { return &amp;#34;123&amp;#34;; };</description>
     </item>
     
   </channel>
