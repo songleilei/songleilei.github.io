@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Moon</title>
+    <link>https://songleilei.github.io/post/</link>
+    <description>Recent content in Posts on Moon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Aug 2020 22:59:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://songleilei.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://songleilei.github.io/post/my-first-post/</link>
+      <pubDate>Mon, 03 Aug 2020 22:59:04 +0800</pubDate>
+      
+      <guid>https://songleilei.github.io/post/my-first-post/</guid>
+      <description>这是第一篇博客</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://songleilei.github.io/sitemap.xml
