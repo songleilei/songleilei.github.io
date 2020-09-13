@@ -6,10 +6,23 @@
     <description>Recent content in leetcode on Moon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Sep 2020 00:15:21 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 00:42:07 +0800</lastBuildDate>
     
 	<atom:link href="https://songleilei.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最近的请求次数</title>
+      <link>https://songleilei.github.io/post/%E6%9C%80%E8%BF%91%E7%9A%84%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/</link>
+      <pubDate>Mon, 14 Sep 2020 00:42:07 +0800</pubDate>
+      
+      <guid>https://songleilei.github.io/post/%E6%9C%80%E8%BF%91%E7%9A%84%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0/</guid>
+      <description>&lt;p&gt;写一个  RecentCounter  类来计算最近的请求。&lt;/p&gt;
+&lt;p&gt;它只有一个方法：ping(int t)，其中  t  代表以毫秒为单位的某个时间。&lt;/p&gt;
+&lt;p&gt;返回从 3000 毫秒前到现在的  ping  数。&lt;/p&gt;
+&lt;p&gt;任何处于  [t - 3000, t]  时间范围之内的 ping  都将会被计算在内，包括当前（指 t  时刻）的 ping。&lt;/p&gt;
+&lt;p&gt;保证每次对 ping 的调用都使用比之前更大的 t 值。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>二叉树的前序遍历</title>
