@@ -6,10 +6,23 @@
     <description>Recent content in leetcode on Moon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2020 00:42:07 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2020 23:16:15 +0800</lastBuildDate>
     
 	<atom:link href="https://songleilei.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>删除链表中的节点</title>
+      <link>https://songleilei.github.io/post/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Mon, 14 Sep 2020 23:16:15 +0800</pubDate>
+      
+      <guid>https://songleilei.github.io/post/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</guid>
+      <description>&lt;p&gt;请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。
+示例 1：&lt;/p&gt;
+&lt;p&gt;输入：head = [4,5,1,9], node = 5
+输出：[4,1,9]
+解释：给定你链表中值为  5  的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&amp;gt; 1 -&amp;gt; 9.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>最近的请求次数</title>
