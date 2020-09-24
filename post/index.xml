@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Moon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Sep 2020 22:08:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 22:35:16 +0800</lastBuildDate>
     
 	<atom:link href="https://songleilei.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>环形链表</title>
+      <link>https://songleilei.github.io/post/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Thu, 24 Sep 2020 22:35:16 +0800</pubDate>
+      
+      <guid>https://songleilei.github.io/post/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</guid>
+      <description>&lt;p&gt;给定一个链表，判断链表中是否有环。&lt;/p&gt;
+&lt;p&gt;如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。&lt;/p&gt;
+&lt;p&gt;如果链表中存在环，则返回 true 。 否则，返回 false 。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>删除排序链表中的重复元素</title>
