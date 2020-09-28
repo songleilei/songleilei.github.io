@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>冒泡排序 - Moon</title>
+  <title>选择排序 - Moon</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="moon" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13  /** 时间复杂度 O(n*n)*/ Array.prototype.bubbleSort = function () { for (let i = 0; i &amp;lt; this.length - 1; i&#43;&#43;) { for (let j = 0; j &amp;lt; this.length - 1 - i; j&#43;&#43;) { if (this[j] &amp;gt; this[j &#43; 1]) { const temp = this[j]; this[j] = this[j &#43; 1]; this[j &#43; 1] = temp; } } } };   " /><meta name="keywords" content="Github, Vue, React, Front End" />
+<meta name="author" content="moon" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  Array.prototype.selectionSort = function () { for (let i = 0; i &amp;lt; this.length - 1; i&#43;&#43;) { let min = i; for (let j = i &#43; 1; j &amp;lt; this.length; j&#43;&#43;) { if (this[j] &amp;lt; this[min]) { min = j; } } if (min !== i) { const temp = this[i]; this[i] = this[min]; this[min] = temp; } } };   " /><meta name="keywords" content="Github, Vue, React, Front End" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://songleilei.github.io/post/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" />
+<link rel="canonical" href="https://songleilei.github.io/post/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="冒泡排序" />
+<meta property="og:title" content="选择排序" />
 <meta property="og:description" content="
 
  1
@@ -55,18 +55,22 @@
 11
 12
 13
+14
+15
 
 
-/** 时间复杂度 O(n*n)*/
-
-Array.prototype.bubbleSort = function () {
+Array.prototype.selectionSort = function () {
   for (let i = 0; i &lt; this.length - 1; i&#43;&#43;) {
-    for (let j = 0; j &lt; this.length - 1 - i; j&#43;&#43;) {
-      if (this[j] &gt; this[j &#43; 1]) {
-        const temp = this[j];
-        this[j] = this[j &#43; 1];
-        this[j &#43; 1] = temp;
+    let min = i;
+    for (let j = i &#43; 1; j &lt; this.length; j&#43;&#43;) {
+      if (this[j] &lt; this[min]) {
+        min = j;
       }
+    }
+    if (min !== i) {
+      const temp = this[i];
+      this[i] = this[min];
+      this[min] = temp;
     }
   }
 };
@@ -74,10 +78,10 @@ Array.prototype.bubbleSort = function () {
 
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://songleilei.github.io/post/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" />
-<meta property="article:published_time" content="2020-09-27T23:18:47+08:00" />
-<meta property="article:modified_time" content="2020-09-27T23:18:47+08:00" />
-<meta itemprop="name" content="冒泡排序">
+<meta property="og:url" content="https://songleilei.github.io/post/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" />
+<meta property="article:published_time" content="2020-09-28T23:13:49+08:00" />
+<meta property="article:modified_time" content="2020-09-28T23:13:49+08:00" />
+<meta itemprop="name" content="选择排序">
 <meta itemprop="description" content="
 
  1
@@ -93,33 +97,37 @@ Array.prototype.bubbleSort = function () {
 11
 12
 13
+14
+15
 
 
-/** 时间复杂度 O(n*n)*/
-
-Array.prototype.bubbleSort = function () {
+Array.prototype.selectionSort = function () {
   for (let i = 0; i &lt; this.length - 1; i&#43;&#43;) {
-    for (let j = 0; j &lt; this.length - 1 - i; j&#43;&#43;) {
-      if (this[j] &gt; this[j &#43; 1]) {
-        const temp = this[j];
-        this[j] = this[j &#43; 1];
-        this[j &#43; 1] = temp;
+    let min = i;
+    for (let j = i &#43; 1; j &lt; this.length; j&#43;&#43;) {
+      if (this[j] &lt; this[min]) {
+        min = j;
       }
+    }
+    if (min !== i) {
+      const temp = this[i];
+      this[i] = this[min];
+      this[min] = temp;
     }
   }
 };
 
 
 ">
-<meta itemprop="datePublished" content="2020-09-27T23:18:47+08:00" />
-<meta itemprop="dateModified" content="2020-09-27T23:18:47+08:00" />
+<meta itemprop="datePublished" content="2020-09-28T23:13:49+08:00" />
+<meta itemprop="dateModified" content="2020-09-28T23:13:49+08:00" />
 <meta itemprop="wordCount" content="76">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="冒泡排序"/>
+<meta name="twitter:title" content="选择排序"/>
 <meta name="twitter:description" content="
 
  1
@@ -135,18 +143,22 @@ Array.prototype.bubbleSort = function () {
 11
 12
 13
+14
+15
 
 
-/** 时间复杂度 O(n*n)*/
-
-Array.prototype.bubbleSort = function () {
+Array.prototype.selectionSort = function () {
   for (let i = 0; i &lt; this.length - 1; i&#43;&#43;) {
-    for (let j = 0; j &lt; this.length - 1 - i; j&#43;&#43;) {
-      if (this[j] &gt; this[j &#43; 1]) {
-        const temp = this[j];
-        this[j] = this[j &#43; 1];
-        this[j &#43; 1] = temp;
+    let min = i;
+    for (let j = i &#43; 1; j &lt; this.length; j&#43;&#43;) {
+      if (this[j] &lt; this[min]) {
+        min = j;
       }
+    }
+    if (min !== i) {
+      const temp = this[i];
+      this[i] = this[min];
+      this[min] = temp;
     }
   }
 };
@@ -219,10 +231,10 @@ Array.prototype.bubbleSort = function () {
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">冒泡排序</h1>
+      <h1 class="post-title">选择排序</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-09-27 </span>
+        <span class="post-time"> 2020-09-28 </span>
         
           <span class="more-meta"> 76 words </span>
           <span class="more-meta"> 1 min read </span>
@@ -247,18 +259,22 @@ Array.prototype.bubbleSort = function () {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/** 时间复杂度 O(n*n)*/</span>
-
-<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">bubbleSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">selectionSort</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">temp</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
-        <span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
-        <span class="k">this</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">[</span><span class="nx">min</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">min</span> <span class="o">=</span> <span class="nx">j</span><span class="p">;</span>
       <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">min</span> <span class="o">!==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">temp</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">min</span><span class="p">];</span>
+      <span class="k">this</span><span class="p">[</span><span class="nx">min</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">};</span>
@@ -271,13 +287,9 @@ Array.prototype.bubbleSort = function () {
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">选择排序</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/post/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">
-            <span class="next-text nav-default">两个数组的交集</span>
+        
+        <a class="next" href="/post/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
+            <span class="next-text nav-default">冒泡排序</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
