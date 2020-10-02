@@ -1,19 +1,19 @@
-Array.prototype.selectionSort = function () {
-  for (let i = 0; i < this.length - 1; i++) {
-    let min = i;
-    for (let j = i + 1; j < this.length; j++) {
-      if (this[j] < this[min]) {
-        min = j;
-      }
+Array.prototype.insertionSort = function () {
+    for (let i = 1; i < this.length; i++) {
+        const temp = this[i]
+        let j = i
+        while (j > 0) {
+            if (this[j - 1] > temp) {
+                this[j] = this[j - 1]
+            } else {
+                break
+            }
+            j--
+        }
+        this[j] = temp
     }
-    if (min !== i) {
-      const temp = this[i];
-      this[i] = this[min];
-      this[min] = temp;
-    }
-  }
-};
+}
 
-const arr = [5, 4, 3, 2, 1];
-arr.selectionSort();
-console.log(arr);
+const arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+arr.insertionSort()
+console.log(arr)

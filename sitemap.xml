@@ -3,14 +3,21 @@
   
   <url>
     <loc>https://songleilei.github.io/</loc>
-    <lastmod>2020-09-28T23:13:49+08:00</lastmod>
+    <lastmod>2020-10-02T17:08:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://songleilei.github.io/post/</loc>
-    <lastmod>2020-09-28T23:13:49+08:00</lastmod>
+    <lastmod>2020-10-02T17:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://songleilei.github.io/post/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2020-10-02T17:08:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
