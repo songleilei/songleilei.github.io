@@ -1,37 +1,24 @@
-Array.prototype.mergeSort = function () {
+Array.prototype.quickSort = function () {
   const rec = (arr) => {
-    if (arr.length === 1) {
-      return arr
-    }
-    const mid = Math.floor(arr.length / 2)
-    const left = arr.slice(0, mid)
-    const right = arr.slice(mid, arr.length)
-
-    const orderLeft = rec(left)
-    const orderRight = rec(right)
-    const res = []
-
-    while (orderLeft.length || orderRight.length) {
-      if (orderLeft.length && orderRight.length) {
-        res.push(
-          orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift()
-        )
-      } else if (orderLeft.length) {
-        res.push(orderLeft.shift())
+    if (arr.length < 2) return arr
+    const left = []
+    const right = []
+    const mid = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] > mid) {
+        right.push(arr[i])
       } else {
-        res.push(orderRight.shift())
+        left.push(arr[i])
       }
     }
-    return res
+    return [...rec(left), mid, ...rec(right)]
   }
-
   const res = rec(this)
-
-  res.forEach((n, i) => {
-    this[i] = n
-  })
+  res.forEach((n, i) => (this[i] = n))
 }
 
-const arr = [5, 4, 3, 2, 1]
-arr.mergeSort()
-console.log(arr)
+const arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
+arr1.quickSort()
+console.log('====================================')
+console.log(arr1)
+console.log('====================================')
