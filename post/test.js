@@ -1,12 +1,23 @@
-var intersection = function (nums1, nums2) {
+const isValid = function (str) {
+  if (str.length % 2 === 1) return false
+  const stack = []
   const map = new Map()
-  nums1.forEach((item) => map.set(item, true))
-  const res = []
-  nums2.forEach((item) => {
-    if (map.get(item)) {
-      res.push(item)
-      map.delete(item)
+  map.set('{', '}')
+  map.set('[', ']')
+  map.set('(', ')')
+
+  for (let i = 0; i < str.length; i++) {
+    const element = str[i]
+    if (map.get(element)) {
+      stack.push(element)
+    } else {
+      const target = stack[stack.length - 1]
+      if (map.get(target) === element) {
+        stack.pop()
+      } else {
+        return false
+      }
     }
-  })
-  return res
+  }
+  return stack.length === 0
 }
