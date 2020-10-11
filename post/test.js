@@ -1,23 +1,22 @@
-const isValid = function (str) {
-  if (str.length % 2 === 1) return false
-  const stack = []
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
   const map = new Map()
-  map.set('{', '}')
-  map.set('[', ']')
-  map.set('(', ')')
-
-  for (let i = 0; i < str.length; i++) {
-    const element = str[i]
-    if (map.get(element)) {
-      stack.push(element)
+  for (let i = 0; i < nums.length; i++) {
+    const item = nums[i]
+    const diff = target - item
+    if (map.has(diff)) {
+      return [map.get(diff), i]
     } else {
-      const target = stack[stack.length - 1]
-      if (map.get(target) === element) {
-        stack.pop()
-      } else {
-        return false
-      }
+      map.set(item, i)
     }
   }
-  return stack.length === 0
 }
+
+const nums = [2, 7, 11, 15],
+  target = 9
+
+console.log(twoSum(nums, target))
