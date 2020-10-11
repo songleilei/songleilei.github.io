@@ -1,24 +1,12 @@
-Array.prototype.quickSort = function () {
-  const rec = (arr) => {
-    if (arr.length < 2) return arr
-    const left = []
-    const right = []
-    const mid = arr[0]
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i] > mid) {
-        right.push(arr[i])
-      } else {
-        left.push(arr[i])
-      }
+var intersection = function (nums1, nums2) {
+  const map = new Map()
+  nums1.forEach((item) => map.set(item, true))
+  const res = []
+  nums2.forEach((item) => {
+    if (map.get(item)) {
+      res.push(item)
+      map.delete(item)
     }
-    return [...rec(left), mid, ...rec(right)]
-  }
-  const res = rec(this)
-  res.forEach((n, i) => (this[i] = n))
+  })
+  return res
 }
-
-const arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]
-arr1.quickSort()
-console.log('====================================')
-console.log(arr1)
-console.log('====================================')
