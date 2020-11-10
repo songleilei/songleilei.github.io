@@ -1,17 +1,43 @@
 /**
  * @param {string} s
- * @return {number}
+ * @param {string} t
+ * @return {string}
+ * 输入：s = "ADOBECODEBANC", t = "ABC"
+ * 输出："BANC"
  */
-var lengthOfLongestSubstring = function (s) {
+var minWindow = function (s, t) {
   let l = 0
-  let res = 0
+  let r = 0
   const map = new Map()
-  for (let r = 0; r < s.length; r++) {
-    if (map.has(s[r]) && map.get(s[r]) >= l) {
-      l = map.get(s[r]) + 1
+  for (const c of t) {
+    map.set(c, map.has(c) ? map.get(c) + 1 : 1)
+  }
+  let mapSize = map.size
+  let res = ''
+  while (r < s.length) {
+    const right = s[r]
+    if (map.has(right)) {
+      map.set(right, map.get(right) - 1)
+      if (map.get(right) === 0) {
+        mapSize--
+      }
     }
-    res = Math.max(res, r - l + 1)
-    map.set(s[r], r)
+    while (mapSize === 0) {
+      const newRes = s.substring(l, r + 1)
+      if (!res || res.length > newRes.length) {
+        res = newRes
+      }
+      const left = s[l]
+      if (map.has(left)) {
+        console.log(map)
+        map.set(left, map.get(left) + 1)
+        if (map.get(left) === 1) mapSize++
+      }
+      l++
+    }
+    r++
   }
   return res
 }
+
+minWindow('ADOBECODEBANC', 'ABC')
