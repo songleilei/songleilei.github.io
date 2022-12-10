@@ -181,4 +181,16 @@
     <priority>0</priority>
   </url>
   
+  <url>
+    <loc>https://songleilei.github.io/post/react02/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://songleilei.github.io/post/react01/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
 </urlset>
