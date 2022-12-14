@@ -19,6 +19,8 @@
 <meta name="author" content="moon" /><meta name="description" content=" 我们在 React 中做的就是践行代数效应（Algebraic Effects）
  代数效应与 Fiber 架构的联系
  代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
+ Fiber(纤程)
+进程（Process） 线程（Thread） 协程（Coroutine） Generator
 " /><meta name="keywords" content="Github, Vue, React, Front End" />
 
 
@@ -49,7 +51,11 @@
 代数效应与 Fiber 架构的联系
 
 代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
-" />
+
+Fiber(纤程)
+进程（Process）
+线程（Thread）
+协程（Coroutine） Generator" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://songleilei.github.io/post/react02/" />
 
@@ -60,9 +66,13 @@
 代数效应与 Fiber 架构的联系
 
 代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
-">
 
-<meta itemprop="wordCount" content="73">
+Fiber(纤程)
+进程（Process）
+线程（Thread）
+协程（Coroutine） Generator">
+
+<meta itemprop="wordCount" content="477">
 
 
 
@@ -75,7 +85,11 @@
 代数效应与 Fiber 架构的联系
 
 代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
-"/>
+
+Fiber(纤程)
+进程（Process）
+线程（Thread）
+协程（Coroutine） Generator"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -147,7 +161,7 @@
       <div class="post-meta">
         <span class="post-time"> 0001-01-01 </span>
         
-          <span class="more-meta"> 73 words </span>
+          <span class="more-meta"> 477 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -162,6 +176,73 @@
 <blockquote>
 <p>代数效应是函数式编程中的概念，用于将副作用从函数调用中分离</p>
 </blockquote>
+<p>Fiber(纤程)</p>
+<p>进程（Process）
+线程（Thread）
+协程（Coroutine） Generator</p>
+<h3 id="fiber-含义">Fiber 含义</h3>
+<ol>
+<li>
+<p>老的 React 架构
+数据保存在调用栈中，被称为 Stack Reconciler
+子节点用 child 参数连接，父节点用 return 连接。
+老的架构中使用递归的形式工作
+新结构中采用遍历的形式实现可中断的递归，也复用了这种形式</p>
+</li>
+<li>
+<p>新的 React 架构
+基于 Fiber 节点实现的，被称为 Fiber Reconciler。</p>
+<ol>
+<li>
+<p>作为静态数据结构，每个 Fiber 节点对应一个组件，保存了该组件的类型，对应的 dom 节点等信息，即虚拟 dom。</p>
+</li>
+<li>
+<p>作为动态的工作单元</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Instance
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">key</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">elementType</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">type</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">stateNode</span>
+
+<span class="c1">// Fiber
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="k">return</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">child</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">sibling</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">index</span>
+
+<span class="c1">// Effects
+</span><span class="c1">// ...
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ol>
+<h3 id="什么是双缓存">什么是双缓存</h3>
+<p>内存中构建并直接替换的工作称为双缓存</p>
+<p>当首次调用 <code>ReactDom.render</code> 时，会创建整个应用的根节点 <code>FiberRootNode</code>，
+每次调用 <code>ReactDom.render</code> 会创建当前应用的根节点 <code>RootFiber</code>，首屏渲染之前 <code>RootFiber</code> 没有子节点。
+接下来进入首屏渲染的逻辑，不管是 <code>setState</code> 或者 <code>useState</code> 更新，都会从根节点创建 RootFiber，深度优先遍历模拟递归，最终形成 <code>current Fiber 树</code> 和 <code>workInProgress Fiber 树</code></p>
     </div>
 
     

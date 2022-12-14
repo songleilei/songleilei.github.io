@@ -651,7 +651,11 @@
 &lt;p&gt;代数效应与 Fiber 架构的联系&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;代数效应是函数式编程中的概念，用于将副作用从函数调用中分离&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+&lt;/blockquote&gt;
+&lt;p&gt;Fiber(纤程)&lt;/p&gt;
+&lt;p&gt;进程（Process）
+线程（Thread）
+协程（Coroutine） Generator&lt;/p&gt;</description>
     </item>
     
     <item>
