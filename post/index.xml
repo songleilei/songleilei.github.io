@@ -40,6 +40,25 @@
     </item>
     
     <item>
+      <title>React-Fiber</title>
+      <link>https://songleilei.github.io/post/react-2/</link>
+      <pubDate>Mon, 26 Dec 2022 00:13:17 +0800</pubDate>
+      
+      <guid>https://songleilei.github.io/post/react-2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;我们在 React 中做的就是践行代数效应（Algebraic Effects）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;代数效应与 Fiber 架构的联系&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;代数效应是函数式编程中的概念，用于将副作用从函数调用中分离&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Fiber(纤程)&lt;/p&gt;
+&lt;p&gt;进程（Process）
+线程（Thread）
+协程（Coroutine） Generator&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>React-源码结构</title>
       <link>https://songleilei.github.io/post/react-3/</link>
       <pubDate>Mon, 26 Dec 2022 00:12:01 +0800</pubDate>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>React-源码结构 - Moon</title>
+  <title>React-Fiber - Moon</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="moon" /><meta name="description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓" /><meta name="keywords" content="Github, Vue, React, Front End" />
+<meta name="author" content="moon" /><meta name="description" content=" 我们在 React 中做的就是践行代数效应（Algebraic Effects）
+ 代数效应与 Fiber 架构的联系
+ 代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
+ Fiber(纤程)
+进程（Process） 线程（Thread） 协程（Coroutine） Generator
+" /><meta name="keywords" content="Github, Vue, React, Front End" />
 
 
 
@@ -26,7 +31,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://songleilei.github.io/post/react-3/" />
+<link rel="canonical" href="https://songleilei.github.io/post/react-2/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,24 +44,54 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="React-源码结构" />
-<meta property="og:description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓" />
+<meta property="og:title" content="React-Fiber" />
+<meta property="og:description" content="
+我们在 React 中做的就是践行代数效应（Algebraic Effects）
+
+代数效应与 Fiber 架构的联系
+
+代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
+
+Fiber(纤程)
+进程（Process）
+线程（Thread）
+协程（Coroutine） Generator" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://songleilei.github.io/post/react-3/" />
-<meta property="article:published_time" content="2022-12-26T00:12:01+08:00" />
-<meta property="article:modified_time" content="2022-12-26T00:12:01+08:00" />
-<meta itemprop="name" content="React-源码结构">
-<meta itemprop="description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓">
-<meta itemprop="datePublished" content="2022-12-26T00:12:01+08:00" />
-<meta itemprop="dateModified" content="2022-12-26T00:12:01+08:00" />
-<meta itemprop="wordCount" content="110">
+<meta property="og:url" content="https://songleilei.github.io/post/react-2/" />
+<meta property="article:published_time" content="2022-12-26T00:13:17+08:00" />
+<meta property="article:modified_time" content="2022-12-26T00:13:17+08:00" />
+<meta itemprop="name" content="React-Fiber">
+<meta itemprop="description" content="
+我们在 React 中做的就是践行代数效应（Algebraic Effects）
+
+代数效应与 Fiber 架构的联系
+
+代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
+
+Fiber(纤程)
+进程（Process）
+线程（Thread）
+协程（Coroutine） Generator">
+<meta itemprop="datePublished" content="2022-12-26T00:13:17+08:00" />
+<meta itemprop="dateModified" content="2022-12-26T00:13:17+08:00" />
+<meta itemprop="wordCount" content="477">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="React-源码结构"/>
-<meta name="twitter:description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓"/>
+<meta name="twitter:title" content="React-Fiber"/>
+<meta name="twitter:description" content="
+我们在 React 中做的就是践行代数效应（Algebraic Effects）
+
+代数效应与 Fiber 架构的联系
+
+代数效应是函数式编程中的概念，用于将副作用从函数调用中分离
+
+Fiber(纤程)
+进程（Process）
+线程（Thread）
+协程（Coroutine） Generator"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -123,12 +158,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">React-源码结构</h1>
+      <h1 class="post-title">React-Fiber</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2022-12-26 </span>
         
-          <span class="more-meta"> 110 words </span>
+          <span class="more-meta"> 477 words </span>
           <span class="more-meta"> 1 min read </span>
         
       </div>
@@ -136,38 +171,93 @@
 
     
     <div class="post-content">
-      <div class="highlight"><div class="chroma">
+      <blockquote>
+<p>我们在 React 中做的就是践行代数效应（Algebraic Effects）</p>
+</blockquote>
+<p>代数效应与 Fiber 架构的联系</p>
+<blockquote>
+<p>代数效应是函数式编程中的概念，用于将副作用从函数调用中分离</p>
+</blockquote>
+<p>Fiber(纤程)</p>
+<p>进程（Process）
+线程（Thread）
+协程（Coroutine） Generator</p>
+<h3 id="fiber-含义">Fiber 含义</h3>
+<ol>
+<li>
+<p>老的 React 架构
+数据保存在调用栈中，被称为 Stack Reconciler
+子节点用 child 参数连接，父节点用 return 连接。
+老的架构中使用递归的形式工作
+新结构中采用遍历的形式实现可中断的递归，也复用了这种形式</p>
+</li>
+<li>
+<p>新的 React 架构
+基于 Fiber 节点实现的，被称为 Fiber Reconciler。</p>
+<ol>
+<li>
+<p>作为静态数据结构，每个 Fiber 节点对应一个组件，保存了该组件的类型，对应的 dom 节点等信息，即虚拟 dom。</p>
+</li>
+<li>
+<p>作为动态的工作单元</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 根目录</span>
-├── AUTHORS
-├── CHANGELOG.md
-├── fixtures          <span class="c1"># 包含一些给贡献者准备的小型 React 测试项目</span>
-├── packages          <span class="c1"># 包含元数据（比如 package.json） 和 React 仓库中所有 package 的源码</span>
-├── scripts           <span class="c1"># 各种工具链的脚本，比如git、jest、eslint 等</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Instance
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">tag</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">key</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">elementType</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">type</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">stateNode</span>
+
+<span class="c1">// Fiber
+</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="k">return</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">child</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">sibling</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">index</span>
+
+<span class="c1">// Effects
+</span><span class="c1">// ...
+</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
+</li>
+</ol>
+<h3 id="什么是双缓存">什么是双缓存</h3>
+<p>内存中构建并直接替换的工作称为双缓存</p>
+<p>当首次调用 <code>ReactDom.render</code> 时，会创建整个应用的根节点 <code>FiberRootNode</code>，
+每次调用 <code>ReactDom.render</code> 会创建当前应用的根节点 <code>RootFiber</code>，首屏渲染之前 <code>RootFiber</code> 没有子节点。
+接下来进入首屏渲染的逻辑，不管是 <code>setState</code> 或者 <code>useState</code> 更新，都会从根节点创建 RootFiber，深度优先遍历模拟递归，最终形成 <code>current Fiber 树</code> 和 <code>workInProgress Fiber 树</code></p>
     </div>
 
     
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/react-2/">
+        <a class="prev" href="/post/react-1/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">React-Fiber</span>
+            <span class="prev-text nav-default">React-设计理念</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/">
-            <span class="next-text nav-default">最小覆盖子串</span>
+        <a class="next" href="/post/react-3/">
+            <span class="next-text nav-default">React-源码结构</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
