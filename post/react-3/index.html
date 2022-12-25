@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Moon</title>
+  <title>React-源码结构 - Moon</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="moon" /><meta name="description" content="Moon&#39;s Blog" /><meta name="keywords" content="Github, Vue, React, Front End" />
+<meta name="author" content="moon" /><meta name="description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓" /><meta name="keywords" content="Github, Vue, React, Front End" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://songleilei.github.io/" />
-  <link href="https://songleilei.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Moon" />
-  <link href="https://songleilei.github.io/index.xml" rel="feed" type="application/rss+xml" title="Moon" />
+<link rel="canonical" href="https://songleilei.github.io/post/react-3/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,16 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Moon" />
-<meta property="og:description" content="Moon&#39;s Blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://songleilei.github.io/" />
-<meta property="og:updated_time" content="2022-12-26T00:13:20+08:00" />
-<meta itemprop="name" content="Moon">
-<meta itemprop="description" content="Moon&#39;s Blog">
+<meta property="og:title" content="React-源码结构" />
+<meta property="og:description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://songleilei.github.io/post/react-3/" />
+<meta property="article:published_time" content="2022-12-26T00:12:01+08:00" />
+<meta property="article:modified_time" content="2022-12-26T00:12:01+08:00" />
+<meta itemprop="name" content="React-源码结构">
+<meta itemprop="description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓">
+<meta itemprop="datePublished" content="2022-12-26T00:12:01+08:00" />
+<meta itemprop="dateModified" content="2022-12-26T00:12:01+08:00" />
+<meta itemprop="wordCount" content="110">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Moon"/>
-<meta name="twitter:description" content="Moon&#39;s Blog"/>
+<meta name="twitter:title" content="React-源码结构"/>
+<meta name="twitter:description" content="1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -114,43 +120,60 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">有效的括号</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-12 </span>
-      <div class="post-category">
-          <a href="/categories/leetcode/"> leetcode </a>
-          </div>
-        <span class="more-meta"> 280 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>给定一个只包括 &lsquo;('，')'，'{'，'}'，'['，']&rsquo;  的字符串，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<p>左括号必须用相同类型的右括号闭合。
-左括号必须以正确的顺序闭合。
-注意空字符串可被认为是有效字符串。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/2/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
+          <article class="post">
     
-  </nav>
+    <header class="post-header">
+      <h1 class="post-title">React-源码结构</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-12-26 </span>
+        
+          <span class="more-meta"> 110 words </span>
+          <span class="more-meta"> 1 min read </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 根目录</span>
+├── AUTHORS
+├── CHANGELOG.md
+├── fixtures          <span class="c1"># 包含一些给贡献者准备的小型 React 测试项目</span>
+├── packages          <span class="c1"># 包含元数据（比如 package.json） 和 React 仓库中所有 package 的源码</span>
+├── scripts           <span class="c1"># 各种工具链的脚本，比如git、jest、eslint 等</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/react-1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">React-设计理念</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/">
+            <span class="next-text nav-default">最小覆盖子串</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
 

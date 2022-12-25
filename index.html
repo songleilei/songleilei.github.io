@@ -45,7 +45,7 @@
 <meta property="og:description" content="Moon&#39;s Blog" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://songleilei.github.io/" />
-<meta property="og:updated_time" content="2020-11-10T16:36:09+08:00" />
+<meta property="og:updated_time" content="2022-12-26T00:13:20+08:00" />
 <meta itemprop="name" content="Moon">
 <meta itemprop="description" content="Moon&#39;s Blog">
 <meta name="twitter:card" content="summary"/>
@@ -115,6 +115,67 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/react-1/">React-设计理念</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-12-26 </span>
+      
+        <span class="more-meta"> 710 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/p&gt;, root)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>分析执行 <code>ReactDOM.render</code> 之后的调用函数，主要分为 3 个阶段</p>
+<ol>
+<li>产生更新</li>
+<li>决定需要更新什么组件</li>
+<li>将更新的组件渲染到页面</li>
+</ol>
+<p>分别对应 React 中三大模块</p>
+<ol>
+<li>调度</li>
+<li>协调</li>
+<li>渲染</li>
+</ol>
+    </div>
+    <div class="read-more">
+      <a href="/post/react-1/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/react-3/">React-源码结构</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-12-26 </span>
+      
+        <span class="more-meta"> 110 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 2 3 4 5 6 # 根目录 ├── AUTHORS ├── CHANGELOG.md ├── fixtures # 包含一些给贡献者准备的小型 React 测试项目 ├── packages # 包含元数据（比如 package.json） 和 React 仓
+    </div>
+    <div class="read-more">
+      <a href="/post/react-3/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/">最小覆盖子串</a></h1>
@@ -550,106 +611,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">两个数组的交集</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-26 </span>
-      
-        <span class="more-meta"> 275 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>给定两个数组，编写一个函数来计算它们的交集。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">示例:
-
-输入：nums1 = [1,2,2,1], nums2 = [2,2]
-输出：[2]
-示例 2：
-
-输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-输出：[9,4]
-
-
-说明：
-
-输出结果中的每个元素一定是唯一的。
-我们可以不考虑输出结果的顺序。
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/">回文链表</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-09-25 </span>
-      
-        <span class="more-meta"> 272 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>请判断一个链表是否为回文链表。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">示例 1:
-
-输入: 1-&gt;2
-输出: false
-示例 2:
-
-输入: 1-&gt;2-&gt;2-&gt;1
-输出: true
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
